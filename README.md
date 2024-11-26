@@ -175,11 +175,6 @@ Selain itu, dashboard interaktif yang dikembangkan menggunakan **Looker Studio**
 Dengan menggunakan model Machine Learning ini bersama dengan dashboard, Jaya Jaya Institut dapat lebih cepat mendeteksi siswa yang berisiko tinggi untuk dropout dan memberikan dukungan yang lebih tepat waktu dan terarah. Ini akan berkontribusi pada peningkatan tingkat kelulusan dan pengurangan tingkat dropout, yang pada gilirannya akan menjaga reputasi institusi dan meningkatkan pengalaman pendidikan bagi para siswa.
 
 
-### **Rekomendasi**
-Berikut adalah beberapa **rekomendasi** yang dapat diambil oleh Jaya Jaya Institut untuk mengatasi masalah tingkat dropout berdasarkan analisis data dan model prediksi yang telah dikembangkan:
-
----
-
 ### **Rekomendasi Action Items**
 
 1. **Intervensi Dini Berdasarkan Prediksi Dropout**  
