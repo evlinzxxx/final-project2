@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-pip install seaborn
+! pip install seaborn
 
 
 import os
