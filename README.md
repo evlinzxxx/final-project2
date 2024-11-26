@@ -153,7 +153,7 @@ Berikut adalah langkah-langkah yang lebih terperinci untuk menjalankan sistem pr
 
 #### **Deploy Aplikasi Streamlit**
 Aplikasi Streamlit telah di-deploy dan dapat diakses melalui tautan berikut:
-[Dropout Analytics Streamlit App](https://lookerstudio.google.com/reporting/0df09394-6cad-4720-aca2-e193843e3b34)
+[Dropout Analytics Streamlit App](https://final-project2-2pxcjgu42iernasuyde7dg.streamlit.app/)
 
 ---
 
@@ -200,6 +200,5 @@ Berikut adalah beberapa **rekomendasi** yang dapat diambil oleh Jaya Jaya Instit
 6. **Evaluasi Berkala Program Intervensi**  
    Program-program yang telah diterapkan untuk menurunkan tingkat dropout perlu dievaluasi secara berkala untuk mengukur keberhasilan dan memperbaiki pendekatan yang ada. Data yang dikumpulkan dari dashboard dan model Machine Learning harus digunakan untuk menilai efektivitas tindakan yang diambil dan melakukan penyesuaian jika diperlukan.
 
----
 
 
