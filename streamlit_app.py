@@ -30,8 +30,6 @@ if menu == 'Prediksi Mahasiswa':
                 'Nilai Kualifikasi Sebelumnya', 0.0, 190.0, 90.0)
             Admission_grade = st.slider(
                 'Nilai Penerimaan', 0.0, 190.0, 90.0)
-            Displaced = st.selectbox('Mahasiswa Pindahan', ('Yes', 'No'))
-            Debtor = st.selectbox('Status Debitur', ('Yes', 'No'))
 
         with col2:
             Tuition_fees_up_to_date = st.selectbox(
@@ -39,8 +37,9 @@ if menu == 'Prediksi Mahasiswa':
             Gender = st.selectbox('Jenis Kelamin', ('Male', 'Female'))
             Scholarship_holder = st.selectbox(
                 'Penerima Beasiswa', ('Yes', 'No'))
+            Displaced = st.selectbox('Mahasiswa Pindahan', ('Yes', 'No'))
+            Debtor = st.selectbox('Status Debitur', ('Yes', 'No'))
             
-
         Curricular_units_1st_sem_enrolled = st.slider(
             'Mata Kuliah 1st Sem Diambil', 0, 30, 0)
         Curricular_units_1st_sem_approved = st.slider(
