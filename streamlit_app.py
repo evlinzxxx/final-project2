@@ -24,14 +24,14 @@ if menu == 'Prediksi Mahasiswa':
 
         with col1:
             Application_order = st.slider('Aplication Order', 1, 10, 1)
-            Daytime_evening_attendance = st.selectbox(
-                'Kehadiran (Siang/Malam)', ('Daytime', 'Evening'))
             Previous_qualification_grade = st.slider(
                 'Nilai Kualifikasi Sebelumnya', 0.0, 190.0, 90.0)
             Admission_grade = st.slider(
                 'Nilai Penerimaan', 0.0, 190.0, 90.0)
 
         with col2:
+            Daytime_evening_attendance = st.selectbox(
+                'Kehadiran (Siang/Malam)', ('Daytime', 'Evening'))
             Tuition_fees_up_to_date = st.selectbox(
                 'Pembayaran Up-to-date', ('Yes', 'No'))
             Gender = st.selectbox('Jenis Kelamin', ('Male', 'Female'))
