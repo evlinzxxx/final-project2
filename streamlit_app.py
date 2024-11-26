@@ -12,7 +12,7 @@ standard_scaler = load('best_standard_scaler.pkl')
 st.title("Prediksi Status Mahasiswa")
 
 # Sidebar untuk menu
-menu = st.sidebar.selectbox('Menu', ['Prediction', 'Show Summary Image'])
+menu = st.sidebar.selectbox('Menu', ['Prediction'])
 
 if menu == 'Prediction':
     st.header('Masukkan Parameter Mahasiswa')
@@ -107,24 +107,3 @@ if menu == 'Prediction':
     else:
         st.markdown(f'<p style="color:{color}">{status} (Probabilitas tidak tersedia)</p>', unsafe_allow_html=True)
     
-
-elif menu == 'Show Summary Image':
-    st.header('Penjelasan Model dan Feature Importances')
-
-    # Menampilkan informasi dengan Streamlit
-    st.write("""
-    Model yang digunakan untuk prediksi status mahasiswa adalah model yang sudah dilatih dengan berbagai fitur
-    yang relevan. Model ini menggunakan teknik machine learning dengan Random Forest untuk memprediksi apakah seorang mahasiswa akan Graduate
-    atau Dropout berdasarkan input fitur yang diberikan.
-
-    Berikut parameter model:
-    """)
-    model_params = model.get_params()
-    # Menampilkan parameter model dengan rapi dalam format JSON
-    if isinstance(model_params, dict):
-        st.json(model_params)
-    else:
-        st.write(model_params)
-
-    # Menampilkan gambar feature importances
-    st.image('/mount/src/belajar-penerapan-data-science/Project-Edutech/image/feature_importances.png', caption='Feature Importances')
