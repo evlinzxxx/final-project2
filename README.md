@@ -174,4 +174,32 @@ Selain itu, dashboard interaktif yang dikembangkan menggunakan **Looker Studio**
 
 Dengan menggunakan model Machine Learning ini bersama dengan dashboard, Jaya Jaya Institut dapat lebih cepat mendeteksi siswa yang berisiko tinggi untuk dropout dan memberikan dukungan yang lebih tepat waktu dan terarah. Ini akan berkontribusi pada peningkatan tingkat kelulusan dan pengurangan tingkat dropout, yang pada gilirannya akan menjaga reputasi institusi dan meningkatkan pengalaman pendidikan bagi para siswa.
 
+
+### **Rekomendasi**
+Berikut adalah beberapa **rekomendasi** yang dapat diambil oleh Jaya Jaya Institut untuk mengatasi masalah tingkat dropout berdasarkan analisis data dan model prediksi yang telah dikembangkan:
+
 ---
+
+### **Rekomendasi Action Items**
+
+1. **Intervensi Dini Berdasarkan Prediksi Dropout**  
+   Dengan menggunakan model prediksi Machine Learning yang telah dikembangkan, pihak manajemen dapat mengidentifikasi siswa yang berisiko tinggi untuk dropout lebih awal. Rekomendasikan untuk melakukan **pendampingan akademik** dan **mentoring pribadi** untuk siswa yang teridentifikasi dalam kategori berisiko. Program ini bisa berupa sesi bimbingan dengan dosen atau konselor akademik untuk membantu siswa mengatasi kesulitan yang mereka hadapi.
+
+2. **Meningkatkan Dukungan Keuangan untuk Siswa Berisiko**  
+   Berdasarkan data yang menunjukkan bahwa siswa yang memiliki utang atau tidak mendapatkan beasiswa cenderung lebih sering dropout, institusi perlu mengeksplorasi **peningkatan program beasiswa** atau **program bantuan keuangan** untuk siswa yang membutuhkan. Pemberian beasiswa atau bantuan keuangan tambahan akan membantu mengurangi tekanan finansial yang menjadi faktor utama dalam keputusan dropout.
+
+3. **Pendekatan Personalisasi Berdasarkan Usia dan Status Akademik**  
+   Mengingat faktor usia dan nilai akademik berperan penting dalam keputusan dropout, institusi sebaiknya memberikan pendekatan yang lebih **personalisasi** untuk siswa di usia muda (18-19 tahun) dan siswa dengan nilai akademik rendah. Program **pendampingan akademik** yang intensif dan **workshop keterampilan belajar** dapat membantu mereka menyesuaikan diri dengan tuntutan akademik di perguruan tinggi.
+
+4. **Program Retensi untuk Siswa Non-Beasiswa**  
+   Sebagai upaya untuk menurunkan tingkat dropout di antara siswa yang tidak mendapat beasiswa, institusi dapat mengembangkan **program retensi** yang dirancang untuk meningkatkan keterlibatan siswa, seperti kegiatan ekstrakurikuler yang dapat memperkuat rasa komunitas dan mengurangi perasaan keterasingan. Ini juga bisa mencakup kegiatan sosial atau acara yang mendorong siswa untuk lebih terlibat dalam kehidupan kampus.
+
+5. **Optimalisasi Penggunaan Dashboard untuk Monitoring**  
+   Manfaatkan **dashboard interaktif** yang telah dibuat untuk memantau secara real-time tingkat dropout dan faktor-faktor yang mempengaruhinya. Dengan menggunakan data yang ada, pihak manajemen dapat secara rutin mengevaluasi dan mengambil tindakan yang diperlukan untuk menurunkan tingkat dropout. Disarankan agar **pihak administrasi** dan **staff akademik** diberikan pelatihan untuk membaca dan menginterpretasikan data ini dengan lebih efektif.
+
+6. **Evaluasi Berkala Program Intervensi**  
+   Program-program yang telah diterapkan untuk menurunkan tingkat dropout perlu dievaluasi secara berkala untuk mengukur keberhasilan dan memperbaiki pendekatan yang ada. Data yang dikumpulkan dari dashboard dan model Machine Learning harus digunakan untuk menilai efektivitas tindakan yang diambil dan melakukan penyesuaian jika diperlukan.
+
+---
+
+
