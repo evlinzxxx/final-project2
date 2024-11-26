@@ -79,9 +79,6 @@ if menu == 'Prediksi Mahasiswa':
 
     df_input = user_input_features()
 
-    st.markdown("<h3 style='color: #1F618D;'>📊 Data Input Mahasiswa</h3>", unsafe_allow_html=True)
-    st.write(df_input)
-
     # Define categorical features
     numerical_features = ['Application_order', 'Previous_qualification_grade', 'Admission_grade',
                           'Curricular_units_1st_sem_enrolled', 'Curricular_units_2nd_sem_enrolled',
