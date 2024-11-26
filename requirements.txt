@@ -1,6 +1,4 @@
 streamlit
 joblib
 numpy
-seaborn
 scikit-learn
-plotly.express
