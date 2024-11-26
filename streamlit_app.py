@@ -18,7 +18,6 @@ st.sidebar.markdown(
 menu = st.sidebar.radio('Pilih Menu:', ['Prediksi Mahasiswa'])
 
 if menu == 'Prediksi Mahasiswa':
-    st.markdown("<h2 style='color: #5D6D7E;'>🛠 Masukkan Parameter Mahasiswa</h2>", unsafe_allow_html=True)
 
     def user_input_features():
         col1, col2 = st.columns(2)
