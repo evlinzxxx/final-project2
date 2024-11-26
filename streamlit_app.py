@@ -13,8 +13,6 @@ Original file is located at
 - Id Dicoding: evlinzxxx
 """
 
-!pip install streamlit
-
 """### **Cakupan Proyek**
 
 **1. Tujuan Proyek:**
@@ -518,7 +516,3 @@ print("Shape of df_final:", df_final.shape)
 
 # Optionally, save df_final to a CSV file
 df_final.to_csv('df_final.csv', index=False)
-
-! pip freeze requirements.txt
-
-!pip install --upgrade pip
