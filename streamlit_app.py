@@ -1,4 +1,7 @@
 # -*- coding: utf-8 -*-
+pip install seaborn
+
+
 import os
 import joblib
 import pickle
