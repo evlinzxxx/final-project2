@@ -36,15 +36,7 @@ if menu == 'Prediksi Mahasiswa':
                     'SKS 1st Sem Diakui', 0, 30, 0)
             Curricular_units_1st_sem_grade = st.slider(
                 'Nilai 1st Sem', 0.0, 30.0, 0.0)
-            Curricular_units_2nd_sem_enrolled = st.slider(
-                'Mata Kuliah 2nd Sem Diambil', 0, 20, 0)
-            Curricular_units_2nd_sem_approved = st.slider(
-                'Mata Kuliah 2nd Sem Disetujui', 0, 20, 0)
-            Curricular_units_2nd_sem_credited = st.slider(
-                    'SKS 2nd Sem Diakui', 0, 20, 0)
-            Curricular_units_2nd_sem_grade = st.slider(
-                'Nilai 2nd Sem', 0.0, 30.0, 0.0)
-
+            
         with col2:
             Daytime_evening_attendance = st.selectbox(
                 'Kehadiran (Siang/Malam)', ('Daytime', 'Evening'))
@@ -55,8 +47,14 @@ if menu == 'Prediksi Mahasiswa':
                 'Penerima Beasiswa', ('Yes', 'No'))
             Displaced = st.selectbox('Mahasiswa Pindahan', ('Yes', 'No'))
             Debtor = st.selectbox('Status Debitur', ('Yes', 'No'))
-            
-        
+            Curricular_units_2nd_sem_enrolled = st.slider(
+                'Mata Kuliah 2nd Sem Diambil', 0, 20, 0)
+            Curricular_units_2nd_sem_approved = st.slider(
+                'Mata Kuliah 2nd Sem Disetujui', 0, 20, 0)
+            Curricular_units_2nd_sem_credited = st.slider(
+                    'SKS 2nd Sem Diakui', 0, 20, 0)
+            Curricular_units_2nd_sem_grade = st.slider(
+                'Nilai 2nd Sem', 0.0, 30.0, 0.0)
 
         data = {
             'Application_order': Application_order,
