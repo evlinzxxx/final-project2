@@ -1,111 +1,132 @@
 import streamlit as st
 import pandas as pd
-import joblib
-from data_preprocessing import data_preprocessing, encoder_Course, encoder_Daytime_evening_attendance, encoder_Displaced,encoder_Fathers_occupation, encoder_International, encoder_Mothers_occupation, encoder_Scholarship_holder, encoder_Tuition_fees_up_to_date
-from prediction import prediction
-
-col1, col2 = st.columns([1, 5])
-# with col1:
-    # st.image("https://github.com/dicodingacademy/assets/raw/main/logo.png", width=130)
-with col2:
-    st.header('Student Status Prediction')
-
-data = pd.DataFrame()
-
-col1, col2, col3= st.columns(3)
-
-with col1:
-    Application_order = int(st.number_input(label='Application_order', value=1))
-    data["Application_order"] = [Application_order]
-
-with col2:
-    Course = st.selectbox(label='Course', options=encoder_Course.classes_, index=1)
-    data["Course"] = [Course]
+from joblib import load
+from sklearn.compose import ColumnTransformer
+from sklearn.pipeline import Pipeline
     
-with col3:
-    Daytime_evening_attendance = st.selectbox(label='Daytime_evening_attendance', options=encoder_Daytime_evening_attendance.classes_, index=1)
-    data["Daytime_evening_attendance"] = [Daytime_evening_attendance]
+# Memuat model dan scaler
+model = load('best_trained_model.pkl')
+standard_scaler = load('best_standard_scaler.pkl')
 
-col1, col2, col3= st.columns(3)
-with col1:
-    Previous_qualification_grade = float(st.number_input(label='Previous_qualification_grade', value=140.0))
-    data["Previous_qualification_grade"] = [Previous_qualification_grade]
-with col2:
-    Mothers_occupation = st.selectbox(label='Mothers_occupation', options=encoder_Mothers_occupation.classes_, index=1)
-    data["Mothers_occupation"] = [Mothers_occupation]
-with col3:
-    Fathers_occupation = st.selectbox(label='Fathers_occupation', options=encoder_Fathers_occupation.classes_, index=1)
-    data["Fathers_occupation"] = [Fathers_occupation]
+# Judul aplikasi
+st.title("Prediksi Status Mahasiswa")
 
-col1, col2, col3= st.columns(3)
-with col1:
-    Admission_grade = float(st.number_input(label='Admission_grade', value=140.0))
-    data["Admission_grade"] = [Admission_grade]
-with col2:
-    Displaced = st.selectbox(label='Displaced', options=encoder_Displaced.classes_, index=1)
-    data["Displaced"] = [Displaced]
-with col3:
-    Tuition_fees_up_to_date = st.selectbox(label='Tuition_fees_up_to_date', options=encoder_Tuition_fees_up_to_date.classes_, index=1)
-    data["Tuition_fees_up_to_date"] = [Tuition_fees_up_to_date]
+# Menambahkan logo di sidebar
+st.sidebar.image('image/logo.png', use_column_width=True)
+# Sidebar untuk menu
+menu = st.sidebar.selectbox('Menu', ['Prediction', 'Show Summary Image'])
 
-col1, col2, col3= st.columns(3)
-with col1:
-    Scholarship_holder = st.selectbox(label='Scholarship_holder', options=encoder_Scholarship_holder.classes_, index=1)
-    data["Scholarship_holder"] = [Scholarship_holder]
-with col2:
-    International = st.selectbox(label='International', options=encoder_International.classes_, index=1)
-    data["International"] = [International]
-with col3:
-    Curricular_units_1st_sem_credited = int(st.number_input(label='Curricular_units_1st_sem_credited', value=2))
-    data["Curricular_units_1st_sem_credited"] = [Curricular_units_1st_sem_credited]
+if menu == 'Prediction':
+    st.header('Masukkan Parameter Mahasiswa')
 
-col1, col2, col3= st.columns(3)
-with col1:
-    Curricular_units_1st_sem_enrolled = int(st.number_input(label='Curricular_units_1st_sem_enrolled', value=6))
-    data["Curricular_units_1st_sem_enrolled"] = [Curricular_units_1st_sem_enrolled]
-with col2:
-    Curricular_units_1st_sem_evaluations = float(st.number_input(label='Curricular_units_1st_sem_evaluations', value=11))
-    data["Curricular_units_1st_sem_evaluations"] = [Curricular_units_1st_sem_evaluations]
-with col3:
-    Curricular_units_1st_sem_approved = int(st.number_input(label='Curricular_units_1st_sem_approved', value=1))
-    data["Curricular_units_1st_sem_approved"] = [Curricular_units_1st_sem_approved]
+    def user_input_features():
+        Application_order = st.slider('Application_order', 1, 10, 1)
+        Daytime_evening_attendance = st.selectbox('Daytime_evening_attendance', ('Daytime', 'Evening'))
+        Previous_qualification_grade = st.slider('Previous_qualification_grade', 0.0, 190.0, 90.0)
+        Admission_grade = st.slider('Admission_grade', 0.0, 190.0, 90.0)
+        Displaced = st.selectbox('Displaced', ('Yes', 'No'))
+        Debtor = st.selectbox('Debtor', ('Yes', 'No'))
+        Tuition_fees_up_to_date = st.selectbox('Tuition_fees_up_to_date', ('Yes', 'No'))
+        Gender = st.selectbox('Gender', ('Male', 'Female'))
+        Scholarship_holder = st.selectbox('Scholarship_holder', ('Yes', 'No'))
+        Curricular_units_1st_sem_credited = st.slider('Curricular_units_1st_sem_credited', 0, 30, 0)
+        Curricular_units_1st_sem_enrolled = st.slider('Curricular_units_1st_sem_enrolled', 0, 30, 0)
+        Curricular_units_1st_sem_approved = st.slider('Curricular_units_1st_sem_approved', 0, 30, 0)
+        Curricular_units_1st_sem_grade = st.slider('Curricular_units_1st_sem_grade', 0.0, 30.0, 0.0)
+        Curricular_units_2nd_sem_credited = st.slider('Curricular_units_2nd_sem_credited', 0, 20, 0)
+        Curricular_units_2nd_sem_enrolled = st.slider('Curricular_units_2nd_sem_enrolled', 0, 20, 0)
+        Curricular_units_2nd_sem_approved = st.slider('Curricular_units_2nd_sem_approved', 0, 20, 0)
+        Curricular_units_2nd_sem_grade = st.slider('Curricular_units_2nd_sem_grade', 0.0, 30.0, 0.0)
+        
+        data = {
+            'Application_order': Application_order,
+            'Daytime_evening_attendance': 1 if Daytime_evening_attendance == 'Daytime' else 0,
+            'Previous_qualification_grade': Previous_qualification_grade,
+            'Admission_grade': Admission_grade,
+            'Displaced': 1 if Displaced == 'Yes' else 0,
+            'Debtor': 1 if Debtor == 'Yes' else 0,
+            'Tuition_fees_up_to_date': 1 if Tuition_fees_up_to_date == 'Yes' else 0,
+            'Gender': 1 if Gender == 'Male' else 0,
+            'Scholarship_holder': 1 if Scholarship_holder == 'Yes' else 0,
+            'Curricular_units_1st_sem_credited': Curricular_units_1st_sem_credited,
+            'Curricular_units_1st_sem_enrolled': Curricular_units_1st_sem_enrolled,
+            'Curricular_units_1st_sem_approved': Curricular_units_1st_sem_approved,
+            'Curricular_units_1st_sem_grade': Curricular_units_1st_sem_grade,
+            'Curricular_units_2nd_sem_credited': Curricular_units_2nd_sem_credited,
+            'Curricular_units_2nd_sem_enrolled': Curricular_units_2nd_sem_enrolled,
+            'Curricular_units_2nd_sem_approved': Curricular_units_2nd_sem_approved,
+            'Curricular_units_2nd_sem_grade': Curricular_units_2nd_sem_grade,
+        }
+        features = pd.DataFrame(data, index=[0])
+        return features
 
-col1, col2, col3= st.columns(3)
-with col1:
-    Curricular_units_1st_sem_grade = float(st.number_input(label='Curricular_units_1st_sem_grade', value=11.833333))
-    data["Curricular_units_1st_sem_grade"] = [Curricular_units_1st_sem_grade]
-with col2:
-    Curricular_units_2nd_sem_credited = int(st.number_input(label='Curricular_units_2nd_sem_credited', value=2))
-    data["Curricular_units_2nd_sem_credited"] = [Curricular_units_2nd_sem_credited]
-with col3:
-    Curricular_units_2nd_sem_enrolled = int(st.number_input(label='Curricular_units_2nd_sem_enrolled', value=6))
-    data["Curricular_units_2nd_sem_enrolled"] = [Curricular_units_2nd_sem_enrolled]
+    df_input = user_input_features()
 
-col1, col2, col3= st.columns(3)
-with col1:
-    Curricular_units_2nd_sem_evaluations = int(st.number_input(label='Curricular_units_2nd_sem_evaluations', value=1))
-    data["Curricular_units_2nd_sem_evaluations"] = [Curricular_units_2nd_sem_evaluations]
-with col2:
-    Curricular_units_2nd_sem_approved = int(st.number_input(label='Curricular_units_2nd_sem_approved', value=2))
-    data["Curricular_units_2nd_sem_approved"] = [Curricular_units_2nd_sem_approved]
-with col3:
-    Curricular_units_2nd_sem_grade = float(st.number_input(label='Curricular_units_2nd_sem_grade', value=11.857143))
-    data["Curricular_units_2nd_sem_grade"] = [Curricular_units_2nd_sem_grade]
+    # Menampilkan input pengguna
+    st.subheader('Parameter Mahasiswa')
+    st.write(df_input)
+    # Define categorical features
+    numerical_features = ['Application_order','Previous_qualification_grade','Admission_grade',
+                        'Curricular_units_1st_sem_enrolled','Curricular_units_2nd_sem_enrolled',
+                        'Curricular_units_1st_sem_credited','Curricular_units_2nd_sem_credited',
+                        'Curricular_units_1st_sem_approved','Curricular_units_2nd_sem_approved',
+                        'Curricular_units_1st_sem_grade','Curricular_units_2nd_sem_grade']
+    # Create preprocessing pipeline
+    preprocessor = ColumnTransformer(
+        transformers=[
+            ('scaler', standard_scaler, numerical_features)
+        ],
+        remainder='passthrough'
+    )
 
-col1, col2 = st.columns(2)
-with col1:
-    Curricular_units_2nd_sem_without_evaluations = int(st.number_input(label='Curricular_units_2nd_sem_without_evaluations', value=6))
-    data["Curricular_units_2nd_sem_without_evaluations"] = [Curricular_units_2nd_sem_without_evaluations]
+    # Add the preprocessor and model to the pipeline
+    pipeline = Pipeline([
+        ('preprocessor', preprocessor),
+        ('classifier', model)
+    ])
+
+    # Fit preprocessor to df_enrolled (assuming this is necessary for standard scaler)
+    pipeline.named_steps['preprocessor'].fit(df_input)
+
+    # Preprocess and predict using df_enrolled
+    y_pred_test = pipeline.predict(df_input)
+
+    # Prediksi probabilitas
+    if hasattr(model, 'predict_proba'):
+        y_pred_proba = pipeline.predict_proba(df_input)
+    else:
+        y_pred_proba = None
+
+    st.subheader('Hasil Prediksi')
+    # Konversi prediksi menjadi label yang mudah dipahami
+    status = 'Dropout' if y_pred_test[0] == 1 else 'Graduate'
+    # Menentukan warna teks berdasarkan prediksi
+    color = 'red' if status == 'Dropout' else 'green'
+    # Menampilkan prediksi dan probabilitasnya dengan warna yang sesuai
+    if y_pred_proba is not None:
+        proba = round(y_pred_proba[0][y_pred_test[0]], 3)  # Ambil probabilitas dari kelas prediksi
+        st.markdown(f'<p style="color:{color}">{status} dengan probabilitas {proba}</p>', unsafe_allow_html=True)
+    else:
+        st.markdown(f'<p style="color:{color}">{status} (Probabilitas tidak tersedia)</p>', unsafe_allow_html=True)
     
-with col2:
-    GDP = float(st.number_input(label='GDP', value=1.79))
-    data["GDP"] = [GDP]
 
-with st.expander("View the Raw Data"):
-    st.dataframe(data=data, width=800, height=10)
+elif menu == 'Show Summary Image':
+    st.header('Penjelasan Model dan Feature Importances')
 
-if st.button('Predict'):
-    new_data = data_preprocessing(data=data)
-    with st.expander("View the Preprocessed Data"):
-        st.dataframe(data=new_data, width=800, height=10)
-    st.write("Student Status Prediction: {}".format(prediction(new_data)))
+    # Menampilkan informasi dengan Streamlit
+    st.write("""
+    Model yang digunakan untuk prediksi status mahasiswa adalah model yang sudah dilatih dengan berbagai fitur
+    yang relevan. Model ini menggunakan teknik machine learning dengan Random Forest untuk memprediksi apakah seorang mahasiswa akan Graduate
+    atau Dropout berdasarkan input fitur yang diberikan.
+
+    Berikut parameter model:
+    """)
+    model_params = model.get_params()
+    # Menampilkan parameter model dengan rapi dalam format JSON
+    if isinstance(model_params, dict):
+        st.json(model_params)
+    else:
+        st.write(model_params)
+
+    # Menampilkan gambar feature importances
+    st.image('/mount/src/belajar-penerapan-data-science/Project-Edutech/image/feature_importances.png', caption='Feature Importances')
