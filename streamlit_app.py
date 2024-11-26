@@ -11,8 +11,6 @@ standard_scaler = load('best_standard_scaler.pkl')
 # Judul aplikasi
 st.title("Prediksi Status Mahasiswa")
 
-# Menambahkan logo di sidebar
-st.sidebar.image('image/logo.png', use_column_width=True)
 # Sidebar untuk menu
 menu = st.sidebar.selectbox('Menu', ['Prediction', 'Show Summary Image'])
 
