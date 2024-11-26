@@ -369,6 +369,7 @@ pycparser==2.22
 pydantic==2.9.2
 pydantic_core==2.23.4
 pydata-google-auth==1.8.2
+pydeck==0.9.1
 pydot==3.0.2
 pydotplus==2.0.2
 PyDrive==1.3.1
@@ -462,6 +463,7 @@ sqlparse==0.5.2
 srsly==2.4.8
 stanio==0.5.1
 statsmodels==0.14.4
+streamlit==1.40.2
 StrEnum==0.4.15
 stringzilla==3.10.10
 sympy==1.13.1
@@ -519,6 +521,7 @@ vega-datasets==0.9.0
 wadllib==1.3.6
 wandb==0.18.7
 wasabi==1.1.3
+watchdog==6.0.0
 wcwidth==0.2.13
 weasel==0.4.1
 webcolors==24.11.1
