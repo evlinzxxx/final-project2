@@ -1,4 +1,4 @@
-## **Proyek Akhir: Menyelesaikan Permasalahan Perusahaan Edutech**
+## Student Dropout Prediction at Jaya Jaya Institute Using Random Forest
 
 ### **Business Understanding**
 Jaya Jaya Institut adalah sebuah institusi pendidikan terkemuka yang telah beroperasi sejak tahun 2000 dan memiliki reputasi yang sangat baik dalam mencetak lulusan berkualitas tinggi. Meskipun memiliki prestasi yang gemilang, institusi ini kini menghadapi tantangan serius dengan tingginya angka dropout siswa, yang dapat merusak reputasi dan efisiensi operasionalnya. Tingkat dropout yang mencapai 32.12% menjadi masalah utama yang perlu segera diatasi.
@@ -196,4 +196,4 @@ Dengan menggunakan model Machine Learning ini bersama dengan dashboard, Jaya Jay
    Program-program yang telah diterapkan untuk menurunkan tingkat dropout perlu dievaluasi secara berkala untuk mengukur keberhasilan dan memperbaiki pendekatan yang ada. Data yang dikumpulkan dari dashboard dan model Machine Learning harus digunakan untuk menilai efektivitas tindakan yang diambil dan melakukan penyesuaian jika diperlukan.
 
 
-
+##### Proyek Final Belajar Penerapan Data Science
