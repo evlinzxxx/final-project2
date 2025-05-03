@@ -195,5 +195,3 @@ Dengan menggunakan model Machine Learning ini bersama dengan dashboard, Jaya Jay
 6. **Evaluasi Berkala Program Intervensi**  
    Program-program yang telah diterapkan untuk menurunkan tingkat dropout perlu dievaluasi secara berkala untuk mengukur keberhasilan dan memperbaiki pendekatan yang ada. Data yang dikumpulkan dari dashboard dan model Machine Learning harus digunakan untuk menilai efektivitas tindakan yang diambil dan melakukan penyesuaian jika diperlukan.
 
-
-##### Proyek Final Belajar Penerapan Data Science
